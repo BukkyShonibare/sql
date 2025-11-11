@@ -54,13 +54,14 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-I propose two main ways to design the customer_address table - one that overwrites the old address and the other that keeps changes in the address.
+There are two main ways to design the customer_address table - one that overwrites the old address and the other that keeps changes in the address.
 
 The first architecture is Type 1, which overwrites changes. When a customer updates their address, the new address simply replaces the old one in the same record. This keeps the data clean and simple, but all history is lost, as the system will only ever show the current address.
 
-The second architecture is Type 2, which retains changes. For this, each time a customer changes their address, a new record is added instead of replacing the old one. This approach will include start and end dates or a sign to show which address is current. This preserves the customer's full address history, and allows the system to track where a customer has lived over time.
+The second architecture is Type 2, which retains changes. For this, each time a customer changes their address, a new record is added instead of replacing the old one. This approach will include start and end dates or a sign to show which address is current. This preserves the customer's full address history and allows the system to track where a customer has lived over time.
 
 Essentially, Type 1 overwrites and is simpler, while Type 2 retains history and is better for analysis or tracking changes.
+
 ```
 
 ***
